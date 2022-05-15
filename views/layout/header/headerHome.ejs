@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= tituloweb %>
+    </title>
+
+    <!-- icon -->
+    <script src="/js/load.js"></script>
+    <script src="https://kit.fontawesome.com/06292759af.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/navbar.css">
+
+    <link rel="stylesheet" href="<%=css  %> ">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <input id="nav-toggle" type="checkbox">
+            <div class="logo">
+                <h1>logo</h1>
+            </div>
+            <ul class="links">
+                <li><a href="/api/tareas/Home"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="/api/tareas/New"><i class="fas fa-exclamation-triangle"></i> Nueva tarea</a></li>
+
+
+
+            </ul>
+            <label for="nav-toggle" class="icon-burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </label>
+        </nav>
+    </header>

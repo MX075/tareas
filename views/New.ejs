@@ -1,0 +1,12 @@
+<%- include('layout/header/headerHome.ejs',{tituloweb:'Inicio de session',css:'/css/New.css'}) %>
+
+    <main>
+        <form action="/api/tareas/New" method="post">
+            <label for="Nombre">Nombre de la tarea</label>
+            <input type="text" name="Name" id="">
+            <label for="Nombre">Describe la tarea a realizar</label>
+            <textarea name="Description"></textarea>
+            <button type="submit">Registrar tarea</button>
+
+        </form>
+    </main>

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root {
+    --color1: #2155CD;
+    --color2: #0AA1DD;
+    --color3: #79DAE8;
+    --color4: #E8F9FD;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    background-color: var(--color4);
+}
+
+main {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-top: 15rem;
+}
