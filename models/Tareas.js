@@ -3,16 +3,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TareaSchema = new Schema({
-    Username: {
+    Name: {
         type: String,
         required: true
 
 
     },
-    Rol: {
+    Avance: {
         type: String,
     },
-    Password: {
+    Description: {
         type: String,
         require: true
     },

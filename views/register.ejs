@@ -3,19 +3,15 @@
         <div class="container_P">
             <h1>Registrar nuevo usuario</h1>
             <div class="container_h">
-                <form action="/Control/Registro" method="post">
+                <form action="/api/tareas/Registro" method="post">
                     <label for="name"> <i class="fas fa-user-circle"></i> Nombre de usuario
                     </label>
                     <input type="text" name="username" id="">
-                    <select name="rol" id="" class="tamaño">
-                        <option value="admin">Administrador</option>
-                        <option value="user">Usuario</option>
-                       
-                        </select>
+
                     <label for="password"><i class="fas fa-lock"></i> Contraseña</label>
                     <input type="password" name="password">
                     <br>
-                    <input class="inputformf" type="text" value="" id="fecha" name="Date">
+                    <input class="inputformf" type="text" value="" id="fecha" name="Fecha ">
                     <button type="submit" class="btn btn-success"><i class="fas fa-sign-out-alt"></i> Registrar</button>
                 </form>
             </div>

@@ -1,54 +1,37 @@
 <%- include('layout/header/headerHome.ejs',{tituloweb:'Inicio de session',css:'/css/Home.css'}) %>
-
     <main>
 
         <div>
             <h1>Tareas en ejecucion</h1>
             <br>
             <div>
-                <a href="/api/tareas/New">Crear nuevas tareas</a>
+                <a class="ButtonNew" href="/api/tareas/New">Crear nuevas tareas</a>
             </div>
             <div class="container-tareas">
-                <div class="container-Item">
-                    <h2>Titulo de la tarea</h2>
+                <% if(Tareas ){ %>
+                    <%Tareas.forEach(t=>{%>
+                        <div class="container-Item">
+                            <h2>
+                                <%= t.Name %>
+                            </h2>
 
-                    <h4>Avance actual: 50%</h4>
-                    <h4>Fecha de inicio: 21/12/2022</h4>
-                    <p>Description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis quidem minima impedit eum error, odit assumenda fuga magnam eaque possimus fugiat commodi ipsa provident. Placeat error ipsam nam dolorem est.</p>
-                    <div class="item-Avance">
-
-
-                        <select name="" class="selectItem">
-<option value="0%">0%</option>
-<option value="25%">25%</option>
-<option value="50%">50%</option>
-<option value="75%">75%</option>
-<option value="100%">100%</option>
-
-                    </select>
-                        <button><i class="fas fa-edit"></i> Avance</button>
-                    </div>
-                </div>
-                <div class="container-Item">
-                    <h2>Titulo de la tarea</h2>
-
-                    <h4>Avance actual: 50%</h4>
-                    <p>Description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis quidem minima impedit eum error, odit assumenda fuga magnam eaque possimus fugiat commodi ipsa provident. Placeat error ipsam nam dolorem est.</p>
-                    <div class="item-Avance">
+                            <h4>Avance actual:
+                                <%=t.Avance  %>%
+                            </h4>
+                            <h4>Fecha de inicio:
+                                <%= t.Fecha %>
+                            </h4>
+                            <p>Description:
+                                <%= t.Description %> .</p>
+                            <div class="item-Avance">
 
 
-                        <select name="" class="selectItem">
-<option value="0%">0%</option>
-<option value="25%">25%</option>
-<option value="50%">50%</option>
-<option value="75%">75%</option>
-<option value="100%">100%</option>
 
-                </select>
-                        <button><i class="fas fa-edit"></i> Avance</button>
-                    </div>
+                                <a href="/api/tareas/EditTarea/<%= t._id %> "><i class="fas fa-edit"></i> Avance</a>
+                            </div>
 
-                </div>
-
+                        </div>
+                        <% })  %>
+                            <% } %>
             </div>
     </main>

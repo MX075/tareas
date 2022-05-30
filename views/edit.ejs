@@ -1,0 +1,77 @@
+<main>
+    <div>
+        <form id='formularioEditar' data-id="<%= TareaEdit.id %>">
+            <label for="Nombre">Nombre de la tarea</label>
+            <input type="text" id="Name" value="<%= TareaEdit.Name %> ">
+            <label for="Nombre">avance</label>
+            <select name="Avance" id="avance" class="tamaño" value='<%=TareaEdit.Avance  %> '>
+                <option value="0">0</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+               
+                </select>
+            <label for="Nombre">Describe la tarea a realizar</label>
+            <textarea id="Description" value=" "><%= TareaEdit.Description %></textarea>
+
+
+            <button type="submit" id="edit">Editar</button>
+
+        </form>
+        <button id="btnEliminar" data-id="<%=TareaEdit.id %>"><!--con esto se compura el id par ausarlo en js-->
+        
+        Eliminar
+    </button>
+    </div>
+</main>
+<script>
+    const btnEliminar = document.querySelector('#btnEliminar')
+    btnEliminar.addEventListener('click', async() => {
+        console.log('me diste click')
+        const id = btnEliminar.dataset.id
+        console.log('id', id)
+        try {
+            const data = await fetch(`/api/tareas/Eliminar/${id}`, {
+                method: 'delete'
+            })
+            const res = await data.json()
+            if (res.estado) {
+                window.location.href = '/api/tareas/Home' //con esto si se elimino bien lo redireccionamos a mascotas
+            } else {
+                console.log(res)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    })
+    const formularioEditar = document.querySelector('#formularioEditar')
+    formularioEditar.addEventListener('submit', async(e) => {
+        e.preventDefault()
+        const id = formularioEditar.dataset.id
+        const Name = document.querySelector('#Name').value
+        const Avance = document.querySelector('#avance').value
+        const Description = document.querySelector('#Description').value
+        try {
+            const data = await fetch(`/api/tareas/EditTarea/${id}`, {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Name,
+                    Avance,
+                    Description
+                })
+            })
+            const res = await data.json()
+            if (res.estado) {
+                window.location.href = '/api/tareas/Home' //con esto si se elimino bien lo redireccionamos a mascotas
+            } else {
+                console.log(res)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    })
+</script>

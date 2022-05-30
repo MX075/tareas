@@ -9,9 +9,7 @@ const UserSchema = new Schema({
 
 
     },
-    Rol: {
-        type: String,
-    },
+
     Password: {
         type: String,
         require: true
